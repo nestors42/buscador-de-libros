@@ -1,5 +1,7 @@
 package com.librosnestor.librosbusqueda;
 
+import com.librosnestor.librosbusqueda.Principal.Principal;
+import com.librosnestor.librosbusqueda.model.Datos;
 import com.librosnestor.librosbusqueda.model.DatosLibros;
 import com.librosnestor.librosbusqueda.service.ConsumoAPI;
 import com.librosnestor.librosbusqueda.service.ConvierteDatos;
@@ -16,11 +18,7 @@ public class LibrosbusquedaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		var consumoApi = new ConsumoAPI();
-		var json = consumoApi.obtenerDatos("https://gutendex.com/books/");
-		//System.out.println(json);
-		ConvierteDatos conversor = new ConvierteDatos();
-		var datos = conversor.obtenerDatos(json, DatosLibros.class);
-		System.out.println(datos);
+		Principal principal = new Principal();
+		principal.muestraMenu();
 	}
 }
